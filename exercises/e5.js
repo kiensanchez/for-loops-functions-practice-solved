@@ -7,7 +7,7 @@ export function getAllClientNames(array) {
   // Your code goes here...
   let arr = [];
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < array.length; i++) {
     arr.push(array[i].name);
   }
 

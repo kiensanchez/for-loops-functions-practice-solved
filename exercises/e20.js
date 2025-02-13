@@ -6,33 +6,22 @@
 
 export function separateNamesWithAFromRest(array) {
   // Your code goes here...
-  let arr = [[], []];
+  let namesWithA = [];
+  let namesWithoutA = [];
 
-  for (let i = 0; i < array.length; i++) {
-    let nameArr = array[i].split("");
-
-    for (let p = 0; p < nameArr.length; p++) {
-      if (nameArr[p] === "a" || nameArr[p] === "A") {
-        arr[0].push(array[i]);
-        break;
+  for (let names of array) {
+    let hasA = false;
+    for (let i = 0; i < names.length; i++) {
+      if (names[i] === "a" || names[i] === "A") {
+        hasA = true;
       }
     }
+    if (hasA) {
+      namesWithA.push(names);
+    } else namesWithoutA.push(names);
   }
 
-  for (let i = 0; i < array.length; i++) {
-    let bool = false;
-    for (let p = 0; p < arr[0].length; p++) {
-      if (arr[0][p] === array[i]) {
-        bool = true;
-        break;
-      }
-    }
-    if (bool === false) {
-      arr[1].push(array[i]);
-    }
-  }
-
-  return arr;
+  return [namesWithA, namesWithoutA];
 }
 
 // === TEST YOURSELF ===
